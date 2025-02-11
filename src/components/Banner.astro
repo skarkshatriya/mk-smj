@@ -1,0 +1,48 @@
+---
+import '../assets/styles.css';
+import '../assets/bootstrap.min.css';
+import '../assets/bootsnav.css';
+---
+
+    <!--welcome-hero start -->
+    <section id="welcome-hero" class="welcome-hero">
+      <div class="blurred-background"></div> 
+      <div class="content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <div class="header-text">
+              <h2>Malayala Kshatriya Samajam</h2>
+              <p>Lorem, ipsum dolor.</p>
+            </div><!--/.header-text-->
+          </div><!--/.col-->
+        </div><!-- /.row-->
+      </div><!-- /.container-->
+      </div>
+    </section><!--/.welcome-hero-->
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+      const welcomeHero = document.querySelector('.welcome-hero');
+      const blurredBackground = welcomeHero.querySelector('.blurred-background');
+
+      if (welcomeHero) {
+          window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+
+            // Calculate the background size (between 100% and 150%)
+            let backgroundSize = 120 - scrollPosition * 0.05; // Adjust 0.05 for scroll speed
+
+            // Limit background size to 150% (you might not need this anymore)
+            backgroundSize = Math.max(backgroundSize, 100);  // Prevents shrinking too much
+
+            // Calculate blur (optional, but keep if you want blur effect)
+            let blur = scrollPosition * 0.01;
+            blur = Math.min(blur, 2);
+
+            blurredBackground.style.backgroundSize = `${backgroundSize}%`;
+            blurredBackground.style.filter = `blur(${blur}px)`;
+          });
+        }
+      });
+    </script>
